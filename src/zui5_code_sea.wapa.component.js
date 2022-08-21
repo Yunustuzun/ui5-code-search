@@ -1,0 +1,3 @@
+sap.ui.define(["sap/ui/core/UIComponent","sap/ui/Device","./model/models","sap/ui/model/json/JSONModel","sap/ui/model/Filter","sap/ui/model/FilterOperator"],function(e,i,t,o,n,s){"use strict";return e.extend("int.ui5.template.Component",{metadata:{manife+
+st:"json"},init:function(){this.setModel(t.createDeviceModel(),"device");e.prototype.init.apply(this,arguments);this.getRouter().initialize();this._initApplication()},destroy:function(){e.prototype.destroy.apply(this,arguments)},_initApplication:function+
+(){var e=new o([{Files:{results:[{Lines:{results:[]}}]}}]);this.setModel(e,"application")}})});                                                                                                                                                                

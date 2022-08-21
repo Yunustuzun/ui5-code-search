@@ -1,0 +1,3 @@
+sap.ui.define(["sap/ui/model/type/Currency"],function(e){"use strict";return{currencyValue:function(e){if(!e){return""}return parseFloat(e).toFixed(2)},calculateItemTotal:function(t,r,n){var u=new e({showMeasure:false});var i=t*r;return u.formatValue([i.+
+toFixed(2),n],"string")},sheetText:function(e,t){var r=this.getModel("i18n").getResourceBundle();if(t===null){return"None"}if(t==="O"){if(e){return r.getText("rejected")}else{return r.getText("didntRelease")}}else if(t==="R"){return r.getText("released")+
+}},sheetState:function(e,t){if(t===null){return"None"}if(t==="O"){if(e){return"Error"}else{return"Warning"}}else if(t==="R"){return"Success"}}}});                                                                                                             

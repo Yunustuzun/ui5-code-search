@@ -1,0 +1,2 @@
+sap.ui.define(["./BaseController"],function(t){"use strict";return t.extend("int.ui5.template.controller.NotFound",{onInit:function(){this.getRouter().getTarget("notFound").attachDisplay(this._onNotFoundDisplayed,this)},_onNotFoundDisplayed:function(){th+
+is.getModel("appView").setProperty("/layout","OneColumn")}})});                                                                                                                                                                                                

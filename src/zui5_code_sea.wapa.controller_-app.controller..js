@@ -1,0 +1,1 @@
+sap.ui.define(["./BaseController","sap/ui/model/json/JSONModel"],function(e,n){"use strict";return e.extend("int.ui5.template.controller.App",{onInit:function(){}})});                                                                                        
