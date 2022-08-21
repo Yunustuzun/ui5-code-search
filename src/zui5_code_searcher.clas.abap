@@ -7,7 +7,8 @@ public section.
 
   class-methods SEARCH_STRING
     importing
-      !IV_STRING type ZUI5_SEARCH_STRING
+      !IV_STRING type ZUI5_SEARCH_STRING optional
+      !IV_PACKAGE type PACKNAME optional
     returning
       value(ET_OUTPUT) type ZUI5_CODE_SEARCH_OUTPUT_TT .
 protected section.
@@ -30,10 +31,20 @@ CLASS ZUI5_CODE_SEARCHER IMPLEMENTATION.
            lv_line_no    TYPE n.
 
 
-    SELECT *
+    IF iv_package IS NOT INITIAL.
+      SELECT o2appl~*
+        FROM o2appl
+        INNER JOIN tadir ON tadir~obj_name EQ o2appl~applname
+        INTO TABLE @DATA(lt_o2appl)
+        WHERE applname LIKE 'Z%' AND
+              tadir~devclass EQ @iv_package.
+    ELSE.
+      SELECT *
       FROM o2appl
-      INTO TABLE @DATA(lt_o2appl)
+      INTO TABLE lt_o2appl
       WHERE applname LIKE 'Z%'.
+    ENDIF.
+
 
     LOOP AT lt_o2appl INTO DATA(ls_application).
       CLEAR ls_output.

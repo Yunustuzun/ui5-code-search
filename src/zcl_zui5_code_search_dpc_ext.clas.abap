@@ -19,6 +19,7 @@ CLASS ZCL_ZUI5_CODE_SEARCH_DPC_EXT IMPLEMENTATION.
   METHOD /iwbep/if_mgw_appl_srv_runtime~get_expanded_entityset.
 
     DATA: lv_string TYPE zui5_search_string.
+    DATA: lv_package TYPE packname.
 
 
     CASE iv_entity_name.
@@ -36,9 +37,14 @@ CLASS ZCL_ZUI5_CODE_SEARCH_DPC_EXT IMPLEMENTATION.
     lv_string = ls_app-select_options[ 1 ]-low.
 
 
+
+    ls_app =  it_filter_select_options[ property = 'Package' ].
+    lv_package = ls_app-select_options[ 1 ]-low.
+
+
     CHECK lv_string IS NOT INITIAL.
 
-    DATA(lt_output) = zui5_code_searcher=>search_string( iv_string =  lv_string ) .
+    DATA(lt_output) = zui5_code_searcher=>search_string( iv_string =  lv_string iv_package = lv_package ) .
     copy_data_to_ref( EXPORTING  is_data = lt_output
                        CHANGING  cr_data =  er_entityset ).
 
