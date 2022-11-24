@@ -10,5 +10,5 @@ Search texts in custom BSP/UI5 applications
 
 That's it!
 
-![](UI5-code-search.gif)
+![](ui5-code-search.gif)
 
